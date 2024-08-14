@@ -187,7 +187,7 @@ class _MobileOverlayBottomControlles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const durationTextStyle = TextStyle(color: Colors.white70);
+   // const durationTextStyle = TextStyle(color: Colors.white70);
     const itemColor = Colors.white;
 
     return GetBuilder<PodGetXVideoController>(
@@ -203,21 +203,34 @@ class _MobileOverlayBottomControlles extends StatelessWidget {
                 tag: tag,
                 id: 'video-progress',
                 builder: (podCtr) {
-                  return Row(
-                    children: [
-                      Text(
-                        podCtr.calculateVideoDuration(podCtr.videoPosition),
-                        style: const TextStyle(color: itemColor),
+                  return Container(
+                    padding: const EdgeInsets.all(4),
+                    // height: 50,
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(6),
                       ),
-                      const Text(
-                        ' / ',
-                        style: durationTextStyle,
-                      ),
-                      Text(
-                        podCtr.calculateVideoDuration(podCtr.videoDuration),
-                        style: durationTextStyle,
-                      ),
-                    ],
+                    ),
+                    child: const Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.circle,
+                          color: Colors.white,
+                          size: 5,
+                        ),
+                        SizedBox(width: 2,),
+                        Text(
+                          'Live',
+                          style: TextStyle(
+                            fontSize: 9,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),
